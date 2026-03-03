@@ -1,0 +1,35 @@
+body
+{
+    width: 90vw;
+    height: 100vh;
+    place-content: center;
+    justify-items: center;
+}
+.container{
+    width: 80%;
+    height: 50%;
+    border-radius: 12px;
+    background-color: aliceblue;
+    text-align: center;
+    place-content: center;
+}
+#age-form{
+    text-align: center;
+}
+label{
+    width: 15%;
+    text-align: end;
+}
+.group{
+    display: flex;
+    justify-content: space-evenly;
+    margin-block: 10px;
+}
+input[type = "submit"]{
+    padding: 5px 10px;
+    margin-block: 10px;
+}
+#error{
+    display: block;
+    color: #ff0101;
+}
