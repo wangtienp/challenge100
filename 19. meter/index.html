@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <div class="password-session">
+            <div class="password-input">
+                <label for="password"> Password: </label>
+                <div class="pass">
+                    <input type="password" placeholder="Type your password here..." id="password" maxlength="25">
+                    <i class="fa-solid fa-eye-slash hide"></i>
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+            </div>
+            <meter id="password-strength" class="hide" value="0" optimum="16" min="0" max="25" low="6" high="10" ></meter>
+            <div class="strength-text weak"></div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

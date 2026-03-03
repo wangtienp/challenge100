@@ -1,0 +1,83 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shape {
+    width: 500px;
+    /* height: ; */
+    aspect-ratio: 1/1;
+    position: relative;
+
+    /* border-radius: 3rem; */
+    /* corner-shape: bewel,notch,scoop; */
+}
+
+.border-square {
+    position: absolute;
+    inset: 0;
+    background-color: blue;
+
+    /* transition: clip-path 0.1s; */
+    border-radius: 20px;
+
+    clip-path: shape(from 0 0,
+        hline to 85%,
+        line to 96% 0%,
+        curve to 100% 4% with 100% 0,
+        line to 100% 96%,
+        curve to 96% 100% with 100% 100%,
+        vline to 100%,
+        hline to 0);
+
+}
+
+.shape>.circle {
+    position: absolute;
+    width: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: yellow;
+    inset: 0 0 auto auto;
+    opacity: 0;
+    transform: scale(0);
+    transition: 0.5s;
+    /* margin: auto; */
+}
+
+.shape:hover>.border-square {
+    /* clip-path: shape(from 4% 0%,
+            curve to 0% 4% with 0% 0%,
+            line to 0% 96%,
+            curve to 4% 100% with 0% 100%,
+            line to 96% 100%,
+            curve to 100% 96% with 100% 100%,
+            line to 100% 15%,
+            curve to 85% 0% with 85% 15%,
+            close
+        ); */
+
+
+    clip-path: shape(from 0 0,
+        hline to 85%,
+        line to 85% 0%,
+        curve to 100% 15% with 85% 15%,
+        line to 100% 96%,
+        curve to 96% 100% with 100% 100%,
+        vline to 100%,
+        hline to 0);
+}
+
+.shape:hover>.circle {
+    opacity: 1;
+    transform: scale(1);
+}

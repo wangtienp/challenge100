@@ -1,0 +1,54 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    width: 100%;
+}
+.input-section{
+    width: clamp(70%,700px,50%);
+    margin-inline: auto;
+    position: relative;
+}
+#text-input{
+    width: 100%;
+    padding: 5px 0 5px 4px;
+    font-size: 0.875rem;
+    font-family: sans-serif;
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid ;
+}
+label[for="text-input"]{
+    transition: all 0.3s ease-in;
+    font-size: 0.875rem;
+    font-family: sans-serif;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #919191;
+}
+#text-input:focus{
+    border-bottom-color: #00644e;
+    border-bottom-width: 3px ;
+}
+#text-input:focus~label,
+#text-input:not([value=""])~label{
+    color: #00644e;
+    font-size: 0.5rem;
+    top: -1rem;
+}
+#submit{
+    background: none;
+    border: 0;
+    font-size: 1.25rem;
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0;
+
+}
