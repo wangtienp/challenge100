@@ -1,0 +1,304 @@
+
+.prev-next {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.home-btn{
+    background-color: #2173ff;
+    color: var(--secondary-color);
+    border-radius: 6px;
+    padding: 0.5rem 0.9rem;
+    font-family: var(--font-family-roboto);
+}
+.page-wrapper {
+    min-width: 200px;
+    padding: 1rem;
+    background-color: var(--primary-background-color);
+    border: 1px solid #212;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .id {
+        font-family: var(--font-family-pixelify-sans);
+        color: #929191;
+    }
+
+    .name {
+        margin-left: 0.35rem;
+        font-family: var(--font-family-roboto);
+        color: var(--secondary-color);
+        font-size: 1.25rem;
+    }
+}
+
+.pokemon-title {
+    margin: 1rem 0;
+    text-align: center;
+
+    .name {
+        margin-left: 0.50rem;
+        font-family: var(--font-family-roboto);
+        color: var(--primary-color);
+        font-size: 1.5rem;
+    }
+
+    .id {
+        font-family: var(--font-family-nunito-sans);
+        color: #929191;
+        font-size: 1.5rem;
+    }
+}
+
+select {
+    appearance: none;
+
+    @supports(appearance: base-select) {
+
+        &,
+        &::picker(select) {
+            appearance: base-select;
+        }
+
+    }
+}
+
+
+.pokemon-form {
+    position: relative;
+    padding: 2rem 0;
+
+    .form {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.pokemon-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.pokemon-img {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0 1.5rem 0;
+    .img {
+        display: none;
+        width: 60%;
+        object-fit: contain;
+        border-radius: 6px;
+        background: #F44336;
+    }
+}
+
+.pokemon-species {
+    width: 80%;
+    padding: 0 0.625rem;
+
+    .desc {
+        min-height: 300px;
+        display: none;
+    }
+}
+.desc-table{
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-family-roboto);
+    .types{
+        display: flex;
+    }
+    th,td{
+       padding: 0.825rem 1rem;
+    }
+    th{
+        color: #6d6c6c;
+        font-size: 0.825rem;
+        font-weight: normal;
+        text-align: left;
+        width: 5px;
+        white-space: nowrap;
+    }
+    
+    tr{
+        border-block: 1px solid #d7d7d7;
+    }
+    .ability{
+        vertical-align: top;
+        border: 0;
+    }
+    tr:has(.ability){
+        border: 0;
+    }
+    details{
+        overflow: hidden;
+        padding: 0.25rem 0;
+        cursor: pointer;
+    }
+    details >p{
+        padding-top: 0.625rem;
+    }
+    details::details-content{
+        transition: block-size 0.5s, content-visibility 0.5s;
+        block-size: 0;
+        transition-behavior: allow-discrete;
+    }
+    details[open]::details-content{
+        block-size: auto;
+    }
+}
+
+select {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 300px;
+    padding: 10px;
+    background: darkblue url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23FFF' class='size-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E%0A") right 10px center / 20px no-repeat;
+    /* background: darkblue; */
+
+    @supports(appearance: base-select) {
+        background-image: none;
+
+        &::picker-icon {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23FFF' class='size-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E%0A");
+            transition: rotate 0.2s ease-out;
+        }
+
+        &:open::picker-icon {
+            rotate: 180deg;
+        }
+    }
+}
+
+option {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #2173ff;
+    transition-property: color, background;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+
+    &:where(:hover, :focus, :active) {
+        background: #384e9c;
+        color: white;
+    }
+
+    &:checked {
+        background: #9282ee;
+        color: white;
+    }
+
+    &::checkmark {
+        display: none;
+    }
+}
+.base-stat-title{
+    margin: 2rem 0 1rem 0;
+    text-align: center;
+    font-family: var(--font-family-nunito-sans);
+}
+.pokemon-stats{
+    width: 80%;
+    padding-inline: 2rem;
+    margin-bottom: 1rem;
+    margin-inline: auto;
+}
+
+.stat{
+    display: none;
+    width: 100%;
+    font-family: var(--font-family-roboto);
+    font-size: 1.25rem;
+    border-collapse: collapse;
+    th{
+        font-weight: normal;
+        color: #6d6c6c;
+        text-align: left;
+        white-space: nowrap;
+        font-size: 0.825rem;
+    }
+    .cell-num{
+        white-space: nowrap;
+        text-align: right;
+    }
+    .barchart-bar{
+        height: 0.75rem;
+        border-radius: 6px;
+
+    }
+    .cell-chart{
+        width: 100%;
+        height: 4px;
+    }
+    .cell-total{
+        font-weight: 700;
+    }
+    th,td{
+        padding-inline: 10px;
+    }
+    tr{
+        padding-block: 8px;
+        border-block: 1px solid #d7d7d7;
+    }
+}
+@media screen and (min-width:900px) {
+    .md-50 {
+        width: 50%;
+        margin: 0 0 2rem 0;
+    }
+    .md-100{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:509px) {
+    .page-wrapper {
+        min-width: 100px;
+    }
+
+    .mobile-hidden {
+        display: none;
+    }
+}
+/* base stat -color */
+/* 0-29 */
+.rank-1{
+    background-color: #f34444;
+}
+/* 30-59 */
+.rank-2{
+    background-color: #ff7f0f;
+}
+/* 60-89 */
+.rank-3{
+    background-color: #ffdd57;
+}
+/* 90-119 */
+.rank-4{
+    background-color: #a0e515;
+}
+/* 120-149 */
+.rank-5{
+    background-color: #23cd5e;
+}
+/* 150-255 */
+.rank-6{
+    background-color: #00c2b8;
+}

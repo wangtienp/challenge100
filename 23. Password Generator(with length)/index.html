@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="password-input">
+            <input id="password-text" type="text" readonly>
+            <i class="fa-solid fa-copy"></i>
+        </div>
+        <div class="password-setting">
+            <div class="password-length">
+                <span>Password Length: <span id="length-text">12</span></span>
+                <input id="length-wheel" type="range" min="8" max="30" step="1" />
+            </div>
+            <div class="password-combination">
+                <div>
+                    <span>Characters Used</span>
+                </div>
+                <div class="combo">
+                    <div class="checkbox">
+                        <input type="checkbox" name="combo" id="upper" value="upper" checked>
+                        <label for="upper">Uppercase</label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="combo" id="lower" value="lower" checked>
+                        <label for="lower">Lowercase</label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="combo" id="number" value="number" checked>
+                        <label for="number">Number</label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="combo" id="symbol" value="symbol" checked>
+                        <label for="symbol">Symbol</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="generate">Generate</button>
+            <button id="reset">Reset</button>
+        </div>
+
+        <div class="copy-notif close">
+            <p> You have copied the password</p>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
