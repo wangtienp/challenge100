@@ -1,0 +1,46 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    align-content: center;
+    background-color: black;
+    color: white;
+        font-family: sans-serif;
+}
+.container{
+    width: 75%;
+    max-width: 300px;
+    margin-inline: auto;
+}
+.title{
+    text-align: center;
+    background-image: linear-gradient(to right, #a00 , #ddc122);
+    background-clip: text;
+    -webkit-text-fill-color:transparent;
+    font-size: 36px;
+}
+.counter{
+    border-radius: 1rem;
+    border: 6px white solid;
+}
+
+.default{
+    text-align: center;
+    font-size: 72px;
+}
+.counter-btns{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
+.btn{
+    user-select: none;
+    font-size: 32px;
+    font-weight: bold;
+    min-width:36px;
+    max-width: 100px;
+    border: 6px white solid;
+    padding: 8px;
+    border-radius: 100px;
+    text-align: center;
+    cursor: pointer;
+}

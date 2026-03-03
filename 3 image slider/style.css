@@ -1,0 +1,120 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #131313;
+    overflow-y: hidden;
+}
+
+.container {
+    width: 100%;
+}
+
+.slider {
+    height: 500px;
+    max-width: 572px;
+    position: relative;
+    margin: auto;
+}
+
+.content {
+    height: 100%;
+    max-width: 500px;
+    display: flex;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: auto;
+    scroll-behavior: smooth;
+}
+
+.color {
+    height: 100%;
+    border-radius: 12px;
+    width: 100%;
+    flex-shrink: 0;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    display: grid;
+    place-items: center;
+    user-select: none;
+}
+
+.red {
+    background-color: red;
+}
+
+.yellow {
+    background-color: yellow;
+    color: black;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.arrows {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    top: 50%;
+    left: 0%;
+    justify-content: space-between;
+
+}
+
+.btn {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+}
+
+.btn:first-child {
+    visibility: hidden;
+}
+
+.content-dot{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.content-dot .dot{
+    background-color: aliceblue;
+    margin-inline: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+.dot.selected.red {
+  background-color: red;
+}
+
+.dot.selected.yellow {
+  background-color: yellow;
+}
+
+.dot.selected.blue {
+  background-color: blue;
+}
+
+.dot.selected.pink {
+  background-color: pink;
+}
+
+.dot.selected.purple {
+  background-color: purple;
+}

@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+.container {
+    margin-inline: auto;
+    text-align: center;
+
+}
+
+.title {
+    background-image: linear-gradient(180deg, #e04, #11f);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+small {
+    display: block;
+}
+
+.tip {
+    color: red;
+}
+
+.lists {
+    margin-top: 10px;
+    margin-inline: auto;
+    width: 75%;
+    position: relative;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.list {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    transition: all 0.25s;
+}
+
+.content {
+    flex-grow: 1;
+    background: #07182e;
+    padding-block: 10px;
+    position: relative;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.5s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.content.done{
+    color: #5f5d5d;
+    text-decoration: line-through;
+}
+.border::before {
+    content: '';
+    position: absolute;
+    background: conic-gradient(from var(--angle), #d10520, #ee4217, #eec717, #9cee17, #1129ff, #d10520);
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 3px;
+    border-radius: 10px;
+    animation: 2s spin infinite;
+    z-index: -1;
+}
+
+.fa-solid {
+    padding: 5px;
+    margin-inline: 8px;
+    border-radius: 8px;
+    transition: 0.3s all ease-in;
+    cursor: pointer;
+    box-sizing: content-box;
+}
+
+.fa-check {
+    background-color: #12d312;
+    color: white;
+}
+
+.fa-trash {
+    background-color: #d10520;
+    color: white;
+}
+
+.fa-solid:hover {
+    transform: scale(1.2);
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}

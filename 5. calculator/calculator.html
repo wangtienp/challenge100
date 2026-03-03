@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="cal-base">
+            <div  class="display">
+                <div class="preview"></div>
+                <div class="current">0</div>
+            </div>
+            <div class="keys">
+                <div class="btn clear" data-num="C">C</div>
+                <div class="btn delete" data-num="del">DEL</div>
+                <div class="btn operator" data-num="/">&divide;</div>
+
+                
+                <div class="btn num" data-num="7">7</div>
+                <div class="btn num" data-num="8">8</div>
+                <div class="btn num" data-num="9">9</div>
+                <div class="btn operator" data-num="*">&times;</div>
+                
+                <div class="btn num" data-num="4">4</div>
+                <div class="btn num" data-num="5">5</div>
+                <div class="btn num" data-num="6">6</div>
+                <div class="btn operator" data-num="-">-</div>
+                
+                <div class="btn num" data-num="1">1</div>
+                <div class="btn num" data-num="2">2</div>
+                <div class="btn num" data-num="3">3</div>
+                <div class="btn operator" data-num="+">+</div>
+                
+                <div class="btn num" data-num="0">0</div>
+                <div class="btn num" data-num=".">.</div>
+                <div class="btn equal" data-num="=">=</div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/14.8.1/math.js" integrity="sha512-AJmFmOXFAAzxbzp498VFGf+/Ke7n/O/Pz7L7R2in/4lEDkqhFvuIemyJo/MzXORunJkrJngeIyaWqLAj2rTY2Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="main.js"></script>
+</body>
+</html>
