@@ -11,21 +11,24 @@
 
 <body>
     <div class="container">
-        <div class="body">
-            <circle></circle>
-            <input type="text" placeholder="00:00:00" class="timeInput">
-            <div class="selection">
-                <button class="plustime">+00:30</button>
-                <button class="plustime">+01:00</button>
-                <button class="plustime">+05:00</button>
+        <div class="body" aria-valuenow="0">
+            <div class="main-display">
+                <div class="main-input">
+                    <input type="text" placeholder="00:00:00" class="timeInput" value="5:00">
+                </div>
+                <div class="selection">
+                    <button class="plustime" aria-valuetext="000030">+00:30</button>
+                    <button class="plustime" aria-valuetext="000100">+01:00</button>
+                    <button class="plustime" aria-valuetext="000500">+05:00</button>
+                </div>
             </div>
         </div>
         <div class="buttons">
-            <button class="playpause">
-                <span class="material-icons">
+            <button class="playpause to-play">
+                <span class="material-icons play">
                     play_arrow
                 </span>
-                <span class="material-icons">
+                <span class="material-icons pause">
                     pause
                 </span>
             </button>

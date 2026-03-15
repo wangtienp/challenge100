@@ -11,8 +11,17 @@ body {
     justify-content: center;
     align-items: center;
 }
+@property --fill {
+    syntax: '<length-percentage>';
+    inherits: false;
+    initial-value: 100%;
+}
 
 .container>.body {
+    --circle-width: 300px;
+    --bar-width: 20px;
+    --gray:#d4d4d4;
+    --blue:#3434ee;
     width: 100%;
     max-width: 300px;
     height: 300px;
@@ -21,25 +30,128 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #d4d4d4;
+    background-image: conic-gradient(
+        from 0deg,
+        var(--gray) var(--fill,100%),
+        var(--blue) 0%
+    );
     position: relative;
-    transition: 5s ease-in-out;
+    display: grid;
+    place-items: center;
+    transition: --fill 100ms;
+    &::after {
+        content: "";
+        display: grid;
+        place-items: center;
+        width: calc(var(--circle-width) - var(--bar-width));
+        aspect-ratio: 1/1;
+        border-radius: inherit;
+        background-color: #030303;
+        position: absolute;
+    }
 }
 
-@property --fill{
-    syntax: '<percentage>';
-    inherits: true;
-    initial-value: 0%;
+.main-display {
+    position: relative;
+    z-index: 1;
 }
-.body::after{
-    content: '';
-    height: 100%;
+
+.timeInput {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: #dfdfdf;
+    outline: none;
     width: 100%;
-    border-radius: 50%;
-    background: conic-gradient(greenyellow var(--fill) ,transparent var(--fill));
-    position: absolute;
-    
+
+    &:focus {
+        color: #c3c6d6;
+    }
 }
-.body:hover{
-    --fill:100%;
+
+.selection {
+    display: flex;
+    justify-content: center;
+
+    .plustime {
+        margin: 0.5rem;
+        padding: 0.5rem;
+        font-size: 1rem;
+        background-color: #d3d3d3;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
+
+
+.body:hover {
+    --fill: 100%;
+}
+
+.buttons {
+    max-width: 300px;
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+
+    button {
+        height: 30px;
+        flex: 1;
+        margin: 0 5px;
+        border-radius: 16px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .reset {
+        display: none;
+    }
+}
+
+.playpause {
+    position: relative;
+    transition: 0.5s;
+    background-color: red;
+    overflow-x: hidden;
+
+    .play {
+        transform: translateX(-80px);
+        opacity: 0;
+
+    }
+
+    .pause {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+    .material-icons {
+        position: absolute;
+        inset: 0;
+        width: 24px;
+        height: 24px;
+        margin: auto;
+        transition: 0.6s;
+    }
+
+    &.to-play {
+        background-color: green;
+
+        .play {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .pause {
+            transform: translateX(80px);
+            opacity: 0;
+        }
+
+    }
 }

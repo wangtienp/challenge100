@@ -27,6 +27,10 @@ body {
 #type-input {
     width: 90%;
     position: relative;
+    background-color: white;
+    &:focus{
+        background-color: #c7ab07;
+    }
 }
 
 .letter-count {

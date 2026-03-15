@@ -9,3 +9,6 @@ input.addEventListener('keyup',(e)=>{
     document.querySelector("#count").textContent = count.toString()
     
 })
+input.addEventListener("blur",()=>{
+    console.log("focus out")
+})
