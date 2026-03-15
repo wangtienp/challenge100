@@ -38,7 +38,7 @@ body {
     position: relative;
     display: grid;
     place-items: center;
-    transition: --fill 100ms;
+    transition: --fill 300ms;
     &::after {
         content: "";
         display: grid;
@@ -56,14 +56,18 @@ body {
     z-index: 1;
 }
 .main-input{
+    --display:block;
+    --main-input-length: 105px;
     position: relative;
     &::after{
         content: '';
-        width: 150px;
+        width: var(--main-input-length);
         position: absolute;
-        border-top: dashed 2px #d3d3d3;
+        border-top: solid 2px #d3d3d3;
         left: 50%;
         transform: translate(-50%,0);
+        display: var(--display);
+        transition: width 300ms ease-in;
     }
 }
 .timeInput {
@@ -95,11 +99,6 @@ body {
         border-radius: 5px;
         cursor: pointer;
     }
-}
-
-
-.body:hover {
-    --fill: 100%;
 }
 
 .buttons {

@@ -1,18 +1,24 @@
 const input = document.querySelector("input")
 let canReset = true
 let defaultVal = '000000'
+const mainInput = document.querySelector(".main-input")
 const progressDisplay = document.querySelector(".container > .body")
 const playPause = document.querySelector(".playpause")
 const replayButton = document.querySelector(".reset")
 const selection = document.querySelector(".selection")
 const plusTimeButtons = document.querySelectorAll(".plustime")
-let times, sixDigit = '000500'
+let times
 let intervalId
 let secNum, progressTotalSec
 let replaySixDigit
 let isReplayId = 1
+let sixDigit
 const audio = new Audio("./timer.wav")
 
+window.addEventListener("load",()=>{
+    sixDigit = localStorage.getItem("sixDigit")||"000500"
+    convertTime()
+})
 replayButton.addEventListener("click", () => {
     replayButton.style.display = "none"
     if (!playPause.classList.contains("to-play")) {
@@ -20,9 +26,10 @@ replayButton.addEventListener("click", () => {
     }
     selection.style.display = "flex"
     playPause.style.display = "flex"
+    mainInput.style.setProperty('--display','block')
     replay()
 })
-playPause.addEventListener("click", (e) => {
+playPause.addEventListener("click", () => {
     // setInputRange()
     // play
     if (playPause.classList.contains("to-play")) {
@@ -30,7 +37,7 @@ playPause.addEventListener("click", (e) => {
         playPause.classList.remove("to-play")
         selection.style.display = "none"
         replayButton.style.display = "flex"
-
+        mainInput.style.setProperty('--display','none')
         isReplayId = 0
     }
     // pause
@@ -38,6 +45,7 @@ playPause.addEventListener("click", (e) => {
         clearInterval(intervalId)
         playPause.classList.add("to-play")
         selection.style.display = "flex"
+        mainInput.style.setProperty('--display','block')
     }
 })
 plusTimeButtons.forEach(plusTimeButton => {
@@ -54,12 +62,16 @@ input.addEventListener("click", () => {
         clearInterval(intervalId)
         playPause.classList.add("to-play")
     }
+    mainInput.style.setProperty('--display','block')
+    mainInput.style.setProperty('--main-input-length','150px')
+    selection.style.display = "flex"
 })
 input.addEventListener('blur', () => {
     // console.log('focus out')
     canReset = true
     reset()
     convertTime()
+    mainInput.style.setProperty('--main-input-length','105px')
     document.title = getTimeAccDigit(times.hrStr, times.minStr, times.secStr)
 })
 input.addEventListener("input", (e) => {
@@ -70,6 +82,7 @@ input.addEventListener("keydown", (e) => {
     allowOnlyNumber(e)
     // typing(e)
 })
+
 function setInputRange() {
     let length = input.value.length
     input.setSelectionRange(length, length)
@@ -114,6 +127,7 @@ function typing(e) {
         defaultVal = defaultVal.trim()
     }
     sixDigit = defaultVal.slice(-6)
+    localStorage.setItem("sixDigit",sixDigit)
     // split and join the string as an array of character in order to insert : character in it
     let splitSix = sixDigit.split("")
     splitSix.splice(2, 0, ":")
@@ -159,7 +173,10 @@ function getTimeAccDigit(hour, min, sec) {
     return returnString
 }
 
-function convertTorealTime(digit) {
+// get hr, min and sec in the form of string from sixDigit such as 000500 =00 hr 05 min 00 sec
+function convertTorealTime(digit) 
+{
+    //  if sixDigit > maxDigit / max time allowed, then make sixDigit = maxDigit
     const maxDigit = 995959
     let numDigit = parseInt(digit)
     if (numDigit > maxDigit) {
@@ -187,16 +204,18 @@ function convertTorealTime(digit) {
 }
 
 function playTimer() {
+    // get the total second of secNum
     secNum = getTotalSec(sixDigit)
     if (isReplayId > 0) {
         replaySixDigit = sixDigit
     }
+    // get the total second of the progress/static/total seconds
     progressTotalSec = getTotalSec(replaySixDigit)
     reduceTime()
 }
 
+// get the total seconds
 function getTotalSec(digit) {
-
     let hrStr = digit[0] + digit[1]
     let minStr = digit[2] + digit[3]
     let secStr = digit[4] + digit[5]
@@ -216,6 +235,7 @@ function getTotalSec(digit) {
     return totalSec
 }
 
+// reduce the secNum 1 sec every 1000ms
 function reduceTime() {
     intervalId = setInterval(() => {
         secNum--
@@ -228,8 +248,8 @@ function reduceTime() {
         }
     }, 1000)
 }
+// convert the secNum back to the hr:min:sec
 function displayTime(reduceSec) {
-    // recombine six digit
     let sectoHr = Math.floor(reduceSec / 3600)
     let sectoMin = Math.floor((reduceSec % 3600) / 60)
     let sec = (reduceSec % 3600) % 60
@@ -238,8 +258,9 @@ function displayTime(reduceSec) {
         sectoMin.toString().padStart(2, '0') +
         sec.toString().padStart(2, '0')
     // console.log(sixDigit)
-    times = convertTorealTime(sixDigit)
-    input.value = getTimeAccDigit(times.hrStr, times.minStr, times.secStr)
+    // times = convertTorealTime(sixDigit)
+    // input.value = getTimeAccDigit(times.hrStr, times.minStr, times.secStr)
+    convertTime()
     document.title = getTimeAccDigit(times.hrStr, times.minStr, times.secStr)
 }
 
@@ -248,8 +269,9 @@ function replay() {
     audio.currentTime = 0
     clearInterval(intervalId)
     sixDigit = replaySixDigit
-    times = convertTorealTime(sixDigit)
-    input.value = getTimeAccDigit(times.hrStr, times.minStr, times.secStr)
+    convertTime()
+    // times = convertTorealTime(sixDigit)
+    // input.value = getTimeAccDigit(times.hrStr, times.minStr, times.secStr)
     document.title = getTimeAccDigit(times.hrStr, times.minStr, times.secStr)
     progressDisplay.style.setProperty('--fill', '100%')
 }
@@ -258,8 +280,10 @@ function plusTime(buttonText) {
     let sixDigitNum = parseInt(sixDigit)
     let newValue = buttonNum + sixDigitNum;
     sixDigit = newValue.toString().padStart(6, '0')
-    times = convertTorealTime(sixDigit)
-    input.value = getTimeAccDigit(times.hrStr, times.minStr, times.secStr)
+    localStorage.setItem("sixDigit",sixDigit)
+    convertTime()
+    // times = convertTorealTime(sixDigit)
+    // input.value = getTimeAccDigit(times.hrStr, times.minStr, times.secStr)
     document.title = getTimeAccDigit(times.hrStr, times.minStr, times.secStr)
     isReplayId = 1
 }
