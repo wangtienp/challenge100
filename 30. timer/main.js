@@ -233,11 +233,11 @@ function displayTime(reduceSec) {
     let sectoHr = Math.floor(reduceSec / 3600)
     let sectoMin = Math.floor((reduceSec % 3600) / 60)
     let sec = (reduceSec % 3600) % 60
-    console.log('hr :', sectoHr, " min: ",sectoMin," sec: ",sec)
+    // console.log('hr :', sectoHr, " min: ",sectoMin," sec: ",sec)
     sixDigit = sectoHr.toString().padStart(2, '0') +
         sectoMin.toString().padStart(2, '0') +
         sec.toString().padStart(2, '0')
-    console.log(sixDigit)
+    // console.log(sixDigit)
     times = convertTorealTime(sixDigit)
     input.value = getTimeAccDigit(times.hrStr, times.minStr, times.secStr)
     document.title = getTimeAccDigit(times.hrStr, times.minStr, times.secStr)
