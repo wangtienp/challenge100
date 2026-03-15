@@ -55,11 +55,11 @@ input.addEventListener("click", () => {
         playPause.classList.add("to-play")
     }
 })
-input.addEventListener('blur', (e) => {
+input.addEventListener('blur', () => {
     // console.log('focus out')
     canReset = true
     reset()
-    convertTime(e)
+    convertTime()
     document.title = getTimeAccDigit(times.hrStr, times.minStr, times.secStr)
 })
 input.addEventListener("input", (e) => {
@@ -128,7 +128,7 @@ function typing(e) {
 function convertTime() {
     times = convertTorealTime(sixDigit)
     // console.log()
-    console.log('hr ', times.hrStr, ' min ', times.minStr, ' sec ', times.secStr)
+    // console.log('hr ', times.hrStr, ' min ', times.minStr, ' sec ', times.secStr)
     input.value = getTimeAccDigit(times.hrStr, times.minStr, times.secStr)
 }
 
@@ -165,10 +165,10 @@ function convertTorealTime(digit) {
     if (numDigit > maxDigit) {
         numDigit = maxDigit
     }
-    let digitStr = numDigit.toString().padStart(6, '0')
+    sixDigit = numDigit.toString().padStart(6, '0')
     let times = []
-    for (let i = 0; i < digitStr.length; i += 2) {
-        times.push(digitStr[i] + digitStr[i + 1])
+    for (let i = 0; i < sixDigit.length; i += 2) {
+        times.push(sixDigit[i] + sixDigit[i + 1])
     }
 
     let [hrStr, minStr, secStr] = times
@@ -233,11 +233,11 @@ function displayTime(reduceSec) {
     let sectoHr = Math.floor(reduceSec / 3600)
     let sectoMin = Math.floor((reduceSec % 3600) / 60)
     let sec = (reduceSec % 3600) % 60
-
+    console.log('hr :', sectoHr, " min: ",sectoMin," sec: ",sec)
     sixDigit = sectoHr.toString().padStart(2, '0') +
         sectoMin.toString().padStart(2, '0') +
         sec.toString().padStart(2, '0')
-
+    console.log(sixDigit)
     times = convertTorealTime(sixDigit)
     input.value = getTimeAccDigit(times.hrStr, times.minStr, times.secStr)
     document.title = getTimeAccDigit(times.hrStr, times.minStr, times.secStr)
