@@ -244,6 +244,7 @@ function reduceTime() {
         if (secNum <= 0) {
             clearInterval(intervalId)
             playPause.style.display = "none"
+            input.disabled = true
             audio.play()
         }
     }, 1000)
@@ -267,6 +268,7 @@ function displayTime(reduceSec) {
 function replay() {
     audio.pause()
     audio.currentTime = 0
+    input.disabled = false
     clearInterval(intervalId)
     sixDigit = replaySixDigit
     convertTime()
