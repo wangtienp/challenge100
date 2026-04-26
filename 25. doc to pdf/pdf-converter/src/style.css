@@ -1,0 +1,133 @@
+:root {
+  --red : #ed4030;
+  --red-disabled: #ef685c;
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+body {
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.drop-zone {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: dashed wheat 5px;
+    background-color: gray;
+}
+.error-message{
+  color:var(--red);
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  padding: 0px 14px;
+}
+.button-zone{
+  margin-top: 1rem;
+  text-align: center;
+}
+.convert-button{
+  color: #e5e4e7;
+  background-color: var(--red);
+  border-radius: 1rem;
+  width: 200px;
+  font-size: 1.5rem;
+  height: 50px;
+  border: 0;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+  position: relative;
+}
+.convert-button:active{
+  background-color: #e25e52;
+}
+.convert-button:disabled{
+  background-color: var(--red-disabled);
+}
+@property --degree{
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
+
+.loading{
+  --bar-width :10px;
+  --loading-width:30px;
+  --display: none;
+  display: var(--display);
+  position: absolute;
+  right: 15px;
+  margin-left: 1rem;
+  border-radius: 50%;
+  place-items: center;
+  width: var(--loading-width);
+  aspect-ratio: 1/1;
+  background-image: conic-gradient(from var(--degree), #1559e2 , #d1cbcb);
+  animation: spin 0.3s infinite;
+  &::after{
+    content: '';
+    display: var(--display);
+    place-items: center;
+    width: calc(var(--loading-width) - var(--bar-width));
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: var(--red-disabled);
+
+  }
+}
+@keyframes spin{
+  from{
+    --degree:0deg;
+  }
+  to{
+    --degree:360deg;
+  }
+}
+.dragging{
+    opacity: 0.5;
+}

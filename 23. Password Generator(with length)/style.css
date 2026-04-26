@@ -1,74 +1,93 @@
-:root{
+:root {
     --background-color: #2449f0;
     --text-color: white;
-    --font : sans-serif;
+    --font: sans-serif;
 }
-*{
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-body{
-    height: 100vh;
-    place-content: center;
-}
-.container{
-    height: 100%;
+
+body {
     width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 75%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #bbddc2;
+    padding: 8px 3px;
+    border: 2px solid;
+    border-radius: 4px;
 }
-.password-input{
+
+.password-input {
     position: relative;
     width: 75%;
     margin-bottom: 1rem;
 }
-.password-input>input{
+
+.password-input>input {
     padding: 0 10px;
     font-size: 1.5rem;
     width: 100%;
     height: 50px;
 }
-.fa-copy{
+
+.fa-copy {
     position: absolute;
     top: 50%;
     right: 16px;
     transform: translateY(-50%);
     cursor: pointer;
 }
-.password-setting{
+
+.password-setting {
     width: 75%;
     margin-bottom: 18px;
 }
-.password-length{
+
+.password-length {
     display: flex;
     column-gap: 16px;
     justify-content: space-around;
     align-items: center;
     margin-bottom: 16px;
 }
-#length-text{
+
+#length-text {
     font-weight: 900;
 }
-#length-wheel{
+
+#length-wheel {
     flex-grow: 1;
     /* background-color: red; */
 }
-.password-combination{
+
+.password-combination {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.password-combination>.combo{
+
+.password-combination>.combo {
     flex-grow: 1;
     display: flex;
     justify-content: center;
     column-gap: 10px;
     text-align: center;
 }
-.copy-notif{
+
+.copy-notif {
     position: absolute;
     left: 0;
     bottom: 16px;
@@ -80,17 +99,19 @@ body{
     color: var(--text-color);
     font-family: var(--font);
     background-color: var(--background-color);
-    transition: opacity 0.5s ease , transform 0.3s linear;
+    transition: opacity 0.5s ease, transform 0.3s linear;
     transform: translateX(20px);
 
 }
-.buttons{
+
+.buttons {
     display: flex;
     justify-content: center;
     align-items: center;
     column-gap: 32px;
 }
-.buttons>button{
+
+.buttons>button {
     width: 100px;
     display: flex;
     justify-content: center;
@@ -105,33 +126,39 @@ body{
     cursor: pointer;
     transition: 0.3s ease;
 }
-.buttons>button:hover{
+
+.buttons>button:hover {
     /* background-color: var(--text-color);
     color: var(--background-color); */
     opacity: 0.8;
 }
-.close{
+
+.close {
     opacity: 0;
     transform: translateX(0px);
 }
 
-@media(max-width:480px){
-    .password-length{
+@media(max-width:480px) {
+    .password-length {
         flex-direction: column;
     }
-    .password-combination{
+
+    .password-combination {
         flex-direction: column;
     }
-    .password-combination>.combo{
+
+    .password-combination>.combo {
         margin-top: 10px;
     }
-    .password-input>input{
+
+    .password-input>input {
         font-size: 14px;
     }
+
     .password-combination>.combo {
         display: grid;
         justify-items: start;
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(2, 1fr);
         row-gap: 8px;
     }
 }

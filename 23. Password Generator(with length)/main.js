@@ -8,9 +8,9 @@ const copyBtn = document.querySelector(".fa-copy")
 const checkboxes = document.querySelectorAll(".checkbox input")
 
 // console.log(symbol)
+//initialize
 let checkboxArr = [true, true, true, true]
 let combos = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklmnopqrstuvwxyz", "0123456789", "`~!@#$%^&*()_-+={}[]:;|\"'?/<,>.\\"]
-//initialize
 lengthInput.value = 12;
 let passwordLength = 12;
 let isCopy = false
@@ -32,7 +32,23 @@ function reset() {
         passwordInput.value = ""
     })
 }
+function updateCheckbox() {
+    checkboxes.forEach((checkbox, index) => {
+        checkbox.addEventListener("change", () => {
+            if (checkbox.checked) {
+                checkboxArr[index] = true
+            }
+            else {
+                checkboxArr[index] = false
+            }
+            if (!atLeastOneChecked()) {
+                checkboxes[index].checked = true
+                checkboxArr[index] = true
+            }
 
+        })
+    })
+}
 function generatePassword() {
     let password = []
     while (password.length < passwordLength) {
@@ -42,8 +58,6 @@ function generatePassword() {
             let comboLength = combos[randomCheck].length
             let randomChar = combos[randomCheck][Math.floor(Math.random() * comboLength)]
             password.push(randomChar)
-
-
         }
     }
 
@@ -75,23 +89,7 @@ function passwordValid(passwordArr) {
     return isValid
 
 }
-function updateCheckbox() {
-    checkboxes.forEach((checkbox, index) => {
-        checkbox.addEventListener("change", () => {
-            if (checkbox.checked) {
-                checkboxArr[index] = true
-            }
-            else {
-                checkboxArr[index] = false
-            }
-            if (!atLeastOneChecked()) {
-                checkboxes[index].checked = true
-                checkboxArr[index] = true
-            }
 
-        })
-    })
-}
 
 function atLeastOneChecked() {
     if (checkboxArr.some(item => item == true)) {
@@ -121,6 +119,6 @@ function copyText() {
         setTimeout(() => {
             isCopy = false
             copyNotification.classList.add("close")
-        }, 500)
+        }, 1000)
     })
 }
