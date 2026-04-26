@@ -1,48 +1,59 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     height: 100vh;
     display: flex;
     justify-content: center;
 }
-.container{
+
+.container {
     width: 75%;
 }
-.score-container{
+
+.player-score-container {
     padding: 1em;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px 10px;
     margin-bottom: 20px;
     font-family: sans-serif;
+    justify-items: center;
+    align-items: center;
 }
-.score-container>h1{
+
+.score-container>h1 {
     font-size: 4rem;
 }
-.score{
+
+.score {
     font-size: 2rem;
 }
-.choices{
+
+.choices {
     display: grid;
     /* justify-content: center; */
-    row-gap:6px ;
+    row-gap: 6px;
     column-gap: 16px;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
-.choices >img{
+
+.choices>img {
     justify-self: center;
     cursor: pointer;
 }
-.result{
+
+.result {
     text-align: center;
     margin-top: 20px;
     font-family: sans-serif;
 
 }
-.pick{
+
+.pick {
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -50,15 +61,17 @@ body{
     font-size: 3rem;
     padding: 10px 5px;
 }
-.display{
+
+.display {
     color: #25c432;
     font-size: 3rem;
 }
-.choice
-{
+
+.choice {
     position: relative;
 }
-.choice>img{
+
+.choice>img {
     width: 3rem;
     aspect-ratio: 1 / 1;
     position: absolute;

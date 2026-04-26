@@ -4,7 +4,7 @@ let choiceImgs = document.querySelectorAll(".choices>img")
 let scoreEls = document.querySelectorAll(".score")
 let resultDisplay = document.querySelector(".result>.display")
 let choices = ['rock', 'paper', 'scissor']
-let allChoices = [], result;
+let allChoices = [], result="";
 const pcAmount = 2;
 let myChoiceEl = document.querySelector(".pick.my>.choice")
 let pcChoiceEls = document.querySelectorAll(".pick.pc>.choice")
@@ -77,6 +77,7 @@ function updateScore() {
     }
 }
 function updateResult() {
+    
     if (choiceSet.size != 2) {
         result = "Tie"
     } else {
@@ -84,9 +85,6 @@ function updateResult() {
             if (i == 0) {
                 if (allChoices[i] == winner) {
                     result += "You won "
-                }
-                else {
-                    result = ""
                 }
             }
             else if (allChoices[i] == winner) {
