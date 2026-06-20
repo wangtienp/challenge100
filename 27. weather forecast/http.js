@@ -1,5 +1,5 @@
 const baseGeoURL = "http://api.openweathermap.org/geo/1.0/direct?q="
-const key = 'f9f8a5767c30fc3b5e28758a2d7227eb'
+// put your key here
 const limit = 5
 
 export async function getLonLat(q){

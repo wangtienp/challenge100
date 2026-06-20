@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>React Basics</title>
+    <style>
+        .title {
+            font-size: 26px;
+            font-family: Arial;
+        }
+
+        .input-container {
+            margin-bottom: 10px;
+        }
+
+        .form-input {
+            border-radius: 4px;
+            padding: 10px 12px;
+            outline: none;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .form-input:focus {
+            border-color: blue;
+        }
+
+        .button-container {
+            margin-top: 15px;
+            display: flex;
+            column-gap: 10px;
+        }
+
+        .button {
+            background-color: rgb(0, 123, 255);
+            border: 0;
+            border-radius: 8px;
+            color: white;
+            padding: 12px 15px;
+            font-size: 16px;
+        }
+        body{
+            margin-block: 0;
+        }
+        .app-container{
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 10px;
+            background-color: rgb(222, 222, 222);
+        }
+        button{
+            background-color: rgb(25, 135, 84);
+            color: white;
+            padding: 12px 20px;
+            border: 0;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+        // function LoginForm() {
+        //     const [isShow, setShow] = React.useState(false)
+        //     function handleShowHide(){
+        //         setShow(!isShow)
+        //     }
+        //     function handleSubmit(e){
+        //         e.preventDefault()
+        //     }
+        //     return (
+        //         <form onSubmit={handleSubmit}>
+        //             <div className="input-container">
+        //                 <input type="email" placeholder="Email" className="form-input" />
+        //             </div>
+        //             <div className="input-container">
+        //                 <input type={isShow?"text":"password"} placeholder="Password" className="form-input" />
+        //                 <button onClick={handleShowHide}>{isShow?"Hide":"Show"}</button>
+        //             </div>
+        //             <div className="button-container">
+        //                 <button className="button">Login</button>
+        //                 <button className="button">Sign up</button>
+        //             </div>
+        //         </form>
+        //     )
+        // }
+
+        // function App() {
+        //     return (
+        //         <>
+        //             <p className="title">Hello, Welcome to my websites!</p>
+        //             <LoginForm></LoginForm>
+        //         </>
+        //     );
+        // }
+
+
+
+        // function App() {
+        //     const[time,updateTime] = React.useState(dayjs().format("HH:mm:ss"))
+        //     React.useEffect(()=>{
+        //         setInterval(()=>{
+        //             updateTime(dayjs().format("HH:mm:ss"))
+        //         },1000)
+        //     },[])
+        //     return (
+        //         <>
+        //             <p>Current time: {time} </p>
+
+        //         </>
+        //     );
+        // }
+        function App() {
+            const [count, setCount] = React.useState(0)
+            function increaseCount() {
+                setCount(num => num + 1)
+            }
+            function handleAutoClick() {
+                if (intervalId) return
+                let intervalId = setInterval(() => {
+                    setCount(prev => {
+                        console.log(prev + 1)
+                        return prev + 1
+                    })
+                }, 1000)
+            }
+            React.useEffect(() => {
+                return () => {
+                    if (intervalId) clearInterval(intervalId)
+                }
+            }, []);
+            return (
+                <div className="app-container">
+                    <button onClick={increaseCount}>
+                        {count == 1 ? `Clicked ${count} time` : `Clicked ${count} times`}
+                    </button>
+                    <Reset setCount={setCount} />
+                    <button onClick={handleAutoClick}>
+                        Auto Click
+                    </button>
+                </div>
+            );
+        }
+
+        // function Counter({ count, setCount }) {
+
+        //     function increaseCount() {
+        //         setCount(count + 1)
+        //     }
+        //     return (
+        //         <button onClick={increaseCount}>
+        //             {count == 1 ? `Clicked ${count} time` : `Clicked ${count} times`}
+        //         </button>
+        //     )
+        // }
+        function Reset({ setCount }) {
+            function resetCount() {
+                setCount(0)
+            }
+            return (
+                <button onClick={resetCount}>
+                    Reset
+                </button>
+            )
+        }
+        const container = document.querySelector('.js-container');
+        ReactDOM.createRoot(container).render(<App />);
+    </script>
+</body>
+
+</html>

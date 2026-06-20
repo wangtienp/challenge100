@@ -8,92 +8,60 @@ let todoArray = getTodos();
 updateTodo();
 
 todoForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  addTodo();
+  
+  addTodo(e);
 });
 
-function addTodo() {
+function addTodo(e) {
+  let messages = []
   let todoText = todoInput.value.trim();
   if (todoText.length <= 0) {
-    tip.textContent = "Cannot be empty";
-    return;
+    messages.push("Cannot be empty");
   }
-  todoArray.push({ text: todoText, completed: false });
-//   console.log(todoArray);
-  tip.textContent = "";
-  todoInput.value = "";
+  //   console.log(todoArray);
+  if(messages.length >0){
+    e.preventDefault();
+    return tip.innerText = messages.join(", ")
+    
+  }
+  
+  todoArray.push({ id: crypto.randomUUID(), text: todoText, completed: false });
   updateTodo();
 }
 
 function updateTodo() {
-//   console.log(todoArray.length + " " + todoArray);
-  if (todoArray.length == 0) return;
-  listContainer.innerHTML = "";
-  todoArray.forEach((todo, index) => {
-    createTodoList(todo, index);
-  });
+ 
+  listContainer.innerHTML = todoArray.map(todo =>
+    `
+    <div class ="list" data-key = ${todo.id}>
+      <div class="content border ${todo.completed ? "done" : ""}">${todo.text}</div><i class="fa-solid fa-check"></i> <i class="fa-solid fa-trash"></i>
+    </div>
+    `
+  ).join('')
   saveTodos();
 }
-function createTodoList(todo, index) {
-  let newDiv = document.createElement("div");
-  newDiv.className = "list";
-  if (todo.completed) {
-    newDiv.innerHTML = `<div class="content border done">${todo.text}</div><i class="fa-solid fa-check"></i> <i class="fa-solid fa-trash"></i>`;
-  } else {
-    newDiv.innerHTML = `<div class="content border">${todo.text}</div><i class="fa-solid fa-check"></i> <i class="fa-solid fa-trash"></i>`;
+
+listContainer.addEventListener("click",(e)=>{
+  const key = e.target.closest(".list").dataset.key
+  if(e.target.classList.contains("fa-check")){
+    todoArray.map(todo=>{
+      if(todo.id != key) return todo
+      todo.completed = !todo.completed
+      console.log(todo)
+    })
   }
-  listContainer.append(newDiv);
-  doneAndDelete(index);
-  //make the border animation synchronize
-  synchroBorderAnimation();
-}
+  if(e.target.classList.contains("fa-trash")){
+    todoArray = todoArray.filter(todo=>todo.id != key)
 
-function synchroBorderAnimation() {
-  const contents = document.querySelectorAll(".list .content");
-  contents.forEach((content) => {
-    if (content.classList.contains("border")) {
-      content.classList.remove("border");
-      // console.log(content)
-    }
-    setTimeout(() => {
-      content.classList.add("border");
-    }, 60);
-  });
-}
+  }
+  updateTodo()
+})
 
-function doneAndDelete(index) {
-  const lists = document.querySelectorAll(".list");
-  lists[index].addEventListener("click", (e) => {
-    if (e.target.classList.contains("fa-check")) {
-      done(e, index);
-    } else if (e.target.classList.contains("fa-trash")) {
-      deleteTodo(e, index);
-    }
-  });
-}
-
-function done(event, index) {
-  let parentEl = event.target.parentElement;
-  let content = parentEl.firstChild;
-  let result = content.classList.toggle("done");
-  result
-    ? (todoArray[index].completed = true)
-    : (todoArray[index].completed = false);
-  saveTodos();
-  updateTodo();
-}
-function deleteTodo(event, index) {
-  let parentEl = event.target.parentElement;
-  todoArray.splice(index, 1);
-  parentEl.remove();
-  saveTodos();
-  updateTodo();
-}
 function saveTodos() {
   const todosJson = JSON.stringify(todoArray);
   localStorage.setItem("todos", todosJson);
 }
 function getTodos() {
-  const getJson = localStorage.getItem("todos") || "[]";
+  const getJson = localStorage.getItem("todos") || [];
   return JSON.parse(getJson);
 }

@@ -1,0 +1,85 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.from,
+.to {
+    width: fit-content;
+    border: 2px solid #000;
+    border-radius: 4px;
+    margin-block: 10px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+input[type=number] {
+    border: 0;
+    outline: none;
+    -moz-appearance: textfield;
+    padding: 5px 4px;
+}
+
+.from:has(input[type=number]:focus),
+.from:has(input[type=number]:active) {
+    border-color: #217ef1 !important;
+}
+
+.from:has(input[type=number]:hover) {
+    border-color: #6c736b;
+}
+
+input[readonly] {
+    cursor: auto;
+}
+
+select {
+    padding: 5px 4px;
+    border: 0;
+    outline: none;
+}
+
+.from:has(select:focus-visible),
+.to:has(select:focus-visible) {
+    border-color: #217ef1;
+}
+
+.convert-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.convert-btn {
+    text-align: center;
+
+    button {
+        padding: 5px 8px;
+        border: 2px solid #f25746;
+        border-radius: 5px;
+        outline: none;
+        cursor: pointer;
+        background-color: salmon;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.75);
+        }
+    }
+}
+
+.result {
+    text-align: center;
+}
