@@ -1,0 +1,103 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+.headline {
+    height: 33vh;
+    background-image: url('./images/teluk-intan.jpg');
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.headline>* {
+    color: white;
+    padding: 6px 10px;
+}
+
+.headline>h1 {
+    background-color: #45789d;
+}
+
+.headline>h3 {
+    background-color: #1d3577;
+}
+
+.places-to-visit {
+    background-color: #b9c7d2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.places {
+    display: flex;
+    justify-content: space-around;
+}
+
+.place {
+    flex: 1;
+    position: relative;
+
+}
+
+.place>img {
+    position: relative;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.bg-img {
+    z-index: 0;
+    position: absolute;
+    inset: 0;
+    margin-inline: auto;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    background-image: url('./images/leaning-tower-night.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.place#one>img:hover {
+    opacity: 0;
+    transition: 0.3s ease-in;
+}
+.comment{
+    background-color: #f09f9c;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+}
+.tourist-container{
+    max-width: 350px;
+    padding: 5px 8px;
+    background-color:#73d3e7;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.tourist-container >img{
+    width: 150px;
+    height: 200px;
+}
+.tourist-comment{
+    text-align: center;
+}
+.tourist-comment-text,.name{
+    font-family: 'Lobster Two';
+}
