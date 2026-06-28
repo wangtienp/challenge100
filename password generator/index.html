@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="secondary">Generate a</h1>
+        <h1>random password</h1>
+        <h3>Never use an insecure password again.</h3>
+        <div class="btn-ad-len">
+            <button class="generate-pass">Generate passwords</button>
+            <input type="range" value="15" min="15" max="30" step="1" class="length-wheel">
+            <span class="len">15</span>
+        </div>
+        <div class="password-toggle">
+            <input type="checkbox" name="lower" id="lower" checked><label for="lower">Lowercase</label>
+            <input type="checkbox" name="upper" id="upper" checked><label for="upper">Uppercase</label>
+            <input type="checkbox" name="number" id="number" checked><label for="number">Number</label>
+            <input type="checkbox" name="symbol" id="symbol" checked><label for="symbol">Symbol</label>
+        </div>
+        <div class="line"></div>
+        <div class="passwords">
+            <div class="password one">
+                <input type="text" readonly class="password-input">
+                <button class="copy" disabled>
+                    <img src="./images/copy.svg" alt="copy image">
+                </button>
+            </div>
+            <div class="password two">
+                <input type="text" readonly class="password-input">
+                <button class="copy" disabled>
+                    <img src="./images/copy.svg" alt="copy image">
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="copy-text">Copied</div>
+    <script src="index.js"></script>
+</body>
+
+</html>

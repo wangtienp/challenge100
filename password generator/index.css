@@ -1,0 +1,122 @@
+:root{
+    --bg-body:#111827;
+    --bg-dark:#121212;
+    --primary-clr:#199919;
+    --secondary-clr:#fff;
+    --input-bg:#32343e;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--bg-body);
+    font-family: 'Poppins';
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-clr);
+    position: relative;
+}
+.container{
+    width: 100%;
+    background-color: var(--bg-dark);
+    padding: 15px 28px;
+    border-radius: 8px;
+    max-width: 672px;
+    margin: auto;
+    
+}
+.secondary{
+    color: var(--secondary-clr);
+    margin-top: 40px;
+}
+h3{
+    color: #aaa;
+    margin-bottom: 40px;
+}
+.btn-ad-len{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.generate-pass{
+    background-color: var(--primary-clr);
+    color: var(--secondary-clr);
+    padding: 8px 10px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.generate-pass:hover{
+    background-color: var(--secondary-clr);
+    color: var(--primary-clr);
+}
+input[type="range"] ,input[type="checkbox"]{
+  accent-color: var(--primary-clr); 
+}
+
+label,.len{
+    color: var(--secondary-clr);
+}
+.line{
+    margin-block: 20px;
+    border: 2px solid var(--input-bg);
+}
+.password-toggle{
+    display: flex;
+    gap: 8px;
+}
+.passwords{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+.password{
+    flex: 1;
+    position: relative;
+    display: flex;
+}
+.password-input{
+    width: 100%;
+    padding: 6px 24px 6px 8px;
+    background-color: var(--input-bg);
+    border-radius: 5px;
+    color: var(--primary-clr);
+    border: 0;
+    outline: none;
+    font-size: 18px;
+}
+.copy{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0,-50%);
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+}
+.copy:disabled{
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+.copy-text{
+    position: absolute;
+    bottom: 0%;
+    transition: 0.3s ease-in;
+    background-color: var(--input-bg);
+    color: var(--secondary-clr);
+    padding: 10px 16px;
+    border-radius: 5px;
+    opacity: 0;
+}
+.active{
+    opacity: 1;
+    bottom: 10%;
+}
