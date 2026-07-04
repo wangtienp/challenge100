@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metric Unit Converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="upper">
+            <h1>Metric/Imperial Unit Conversion</h1>
+            <input type="number" value="1" id="input" >
+            <button id="convert-btn">Convert</button>
+        </div>
+        <div class="card">
+            <div class="unit">
+                <h3 class="metric">Length(Meter/Feet)</h3>
+                <div class="value">1 meter = 3.281 feet | 1 foot = 0.305 meter</div>
+            </div>
+            <div class="unit">
+                <h3 class="metric">Volume(Liters/Gallons)</h3>
+                <div class="value">1 liter = 0.264 gallon | 1 gallon = 3.785 liters</div>
+            </div>
+            <div class="unit">
+                <h3 class="metric">Mass(Kilograms/Pounds)</h3>
+                <div class="value">1 kilogram = 2.204 pounds | 1 pound = 0.454 kilogram</div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
