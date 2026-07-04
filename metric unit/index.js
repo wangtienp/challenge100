@@ -21,7 +21,11 @@ convertBtn.addEventListener("click", () => {
         const firstToSec = (inputNumber * units[index]).toFixed(3)
         const secToFirst = (inputNumber * (1 / units[index])).toFixed(3)
 
-        val.textContent = `${inputNumber} ${inputNumber > 1 ? pluralHeads[index][0] : singularHeads[index][0]} = ${firstToSec} ${firstToSec > 1 ? pluralHeads[index][1] : singularHeads[index][1]} | ${inputNumber} ${inputNumber > 1 ? pluralHeads[index][1] : singularHeads[index][1]} = ${secToFirst} ${secToFirst > 1 ? pluralHeads[index][0] : singularHeads[index][0]} `
+        val.textContent = `${inputNumber} ${ isMoreThan1Unit(inputNumber,index,0)} = ${firstToSec} ${isMoreThan1Unit(firstToSec,index,1)} | ${inputNumber} ${isMoreThan1Unit(inputNumber,index,1)} = ${secToFirst} ${isMoreThan1Unit(firstToSec,index,0)} `
     })
 
 })
+
+function isMoreThan1Unit(unit , i,j){
+    return unit > 1 ? pluralHeads[i][j] : singularHeads[i][j]
+}
