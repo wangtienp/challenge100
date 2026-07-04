@@ -9,6 +9,11 @@ const values = document.querySelectorAll(".value")
 const units = [3.281, 0.264, 2.204]
 const pluralHeads = [["meters", "feet"], ["liters", "gallons"], ["kilos", "pounds"]]
 const singularHeads = [["meter", "foot"], ["liter", "gallon"], ["kilo", "pound"]]
+input.addEventListener("keydown",(e)=>{
+    if(!e.repeat &&e.key == 'Enter'){
+        convertBtn.click()
+    }
+})
 convertBtn.addEventListener("click", () => {
     const inputNumber = parseFloat(input.value)
     input.value = Number(inputNumber)
