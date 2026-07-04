@@ -11,6 +11,7 @@ const pluralHeads = [["meters", "feet"], ["liters", "gallons"], ["kilos", "pound
 const singularHeads = [["meter", "foot"], ["liter", "gallon"], ["kilo", "pound"]]
 convertBtn.addEventListener("click", () => {
     const inputNumber = parseFloat(input.value)
+    input.value = Number(inputNumber)
     values.forEach((val, index) => {
         const firstToSec = (inputNumber * units[index]).toFixed(3)
         const secToFirst = (inputNumber * (1 / units[index])).toFixed(3)
