@@ -1,0 +1,32 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 32px;
+}
+.share-price{
+    display: flex;
+    align-items: center;
+}
+.price{
+    margin-right: 6px;
+}
+.fall{
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #cf0000;
+}
+.rise{
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #30af30;
+}
+.draw{
+    width: 0;
+    height: 0;
+    border-left: 8px solid #9a9494; 
+    border-bottom: 8px solid transparent;
+    border-top: 8px solid transparent;
+}
