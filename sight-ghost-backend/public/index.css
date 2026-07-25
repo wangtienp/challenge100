@@ -93,6 +93,7 @@ h3 {
   align-items: center;
   gap: 1rem;
   overflow-y: auto;
+  padding-bottom: 20px;
 }
 
 .sighting {
@@ -102,7 +103,7 @@ h3 {
   max-width: 350px;
   height: auto;
   interpolate-size: allow-keywords;
-  transition: height 1s ease;
+  transition: height .3s ease;
   padding: 10px 1rem 32px;
   position: relative;
   overflow: hidden;
@@ -123,6 +124,7 @@ h3 {
 }
 
 .layer {
+  cursor: pointer;
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -132,16 +134,6 @@ h3 {
   background: linear-gradient(180deg, rgba(209, 209, 209, 0) 0%, rgba(255, 255, 255, 1) 30%);
 }
 
-.read-full {
-  cursor: pointer;
-}
-.sighting:has(.layer:active){
-  height: auto;
-}
-
-.sighting:has(.layer:active) .layer {
-  background: none;
-}
 form{
   display: flex;
   flex-direction: column;
