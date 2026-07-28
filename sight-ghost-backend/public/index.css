@@ -24,7 +24,7 @@
 }
 
 body {
-  height: 100dvh;
+  min-height: 100dvh;
   font-family: 'Roboto';
   background-image: url('./images/spookybg.jpg');
   background-size: cover;
@@ -37,8 +37,10 @@ body {
 }
 
 .container {
+  position: relative;
   padding: 10px 16px;
   height: 100%;
+  overflow-x: hidden;
 }
 
 nav {
@@ -66,7 +68,7 @@ nav {
 }
 
 .main {
-  height: calc(100% - 58px);
+  height: calc(100dvh - 76px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -100,7 +102,7 @@ h3 {
   font-family: 'Roboto';
   color: black;
   background-color: white;
-  max-width: 350px;
+  width: 350px;
   height: auto;
   interpolate-size: allow-keywords;
   transition: height .3s ease;
@@ -188,4 +190,19 @@ button[type="submit"]{
   border-radius: 5px;
   outline: none;
 
+}
+.message{
+  padding: 8px 10px;
+  background: green;
+  color: white;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  opacity: 1;
+  border-radius: 5px;
+  transition: right 0.3s ease-in, opacity 0.2s ease;
+}
+.message.inactive{
+  opacity: 0;
+  right: -2rem;
 }
