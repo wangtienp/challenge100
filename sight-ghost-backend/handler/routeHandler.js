@@ -3,6 +3,7 @@ import { getData } from "../utils/getData.js";
 import { parseJSONBody } from "../utils/parseJSONBody.js";
 import { addNewSighting } from "../utils/addNewSighting.js";
 import { sanitizeInput } from "../utils/sanitizeInput.js";
+import { sightingEvents } from "../events/sightingEvent.js";
 
 export async function handleGet(res) {
     const data = await getData()
@@ -16,6 +17,7 @@ export async function handlePost(req, res) {
         const sanitizeBody = sanitizeInput(parsedBody)
         await addNewSighting(sanitizeBody)
         sendResponse(res, 201, 'application/json', JSON.stringify(sanitizeBody))
+        sightingEvents.emit('sighting-added',sanitizeBody)
 
     } catch (error) {
         sendResponse(res, 400, 'application/json', JSON.stringify({ error: error }))
