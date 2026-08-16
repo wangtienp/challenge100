@@ -1,0 +1,80 @@
+[
+  {
+    "uuid": "406b7d99-3e59-4fee-9ea8-7409b8254e23",
+    "amount": "150000.00",
+    "price_per_gram": "9588.24",
+    "grams_bought": "15.644"
+  },
+  {
+    "uuid": "50c1780e-27c1-4f89-882e-40d95cc81cd8",
+    "amount": "10006.05",
+    "price_per_gram": "9500.00",
+    "grams_bought": "1.053"
+  },
+  {
+    "uuid": "e9791e48-d79f-402e-af03-d9d3ecd6fe2a",
+    "amount": "10006.06",
+    "price_per_gram": "10700.00",
+    "grams_bought": "0.935"
+  },
+  {
+    "uuid": "56bc64f4-d89a-4b83-9291-38caf954c24a",
+    "amount": "150000.00",
+    "price_per_gram": "9500.00",
+    "grams_bought": "15.789"
+  },
+  {
+    "uuid": "03aa3f9f-e115-407d-82cf-ef6148d37be5",
+    "amount": "150000.00",
+    "price_per_gram": "10700.00",
+    "grams_bought": "14.019"
+  },
+  {
+    "uuid": "1968f4df-26bc-4fb7-ba8a-4b7ff371f1f2",
+    "amount": "150000.00",
+    "price_per_gram": "9500.00",
+    "grams_bought": "15.789"
+  },
+  {
+    "uuid": "9a373195-bc1f-4002-b3ef-ff22170bf76e",
+    "amount": "150000.00",
+    "price_per_gram": "9981.50",
+    "grams_bought": "15.028"
+  },
+  {
+    "uuid": "c55a12c4-e790-481e-bfb3-9c2efd42f21f",
+    "amount": "16000.00",
+    "price_per_gram": "9500.00",
+    "grams_bought": "1.684"
+  },
+  {
+    "uuid": "66d56e47-1f09-4b6c-a355-24fa535dee53",
+    "amount": "16000.36",
+    "price_per_gram": "10093.13",
+    "grams_bought": "1.585"
+  },
+  {
+    "uuid": "516d216a-933f-48f3-8ad4-6280ed7b476c",
+    "amount": "10000.98",
+    "price_per_gram": "10074.58",
+    "grams_bought": "0.993"
+  },
+  {
+    "uuid": "06846b8b-93e8-4fed-85aa-b8f237a9b138",
+    "amount": "1000.50",
+    "price_per_gram": "9500.00",
+    "grams_bought": "0.105"
+  },
+  {
+    "uuid": "c9a86f23-dfdf-4f60-813f-0eee1e9932f0",
+    "amount": "1000.56",
+    "price_per_gram": "9500.00",
+    "grams_bought": "0.105"
+  },
+  {
+    "uuid": "3ecf3651-a247-4f0c-b6d9-5a0141706517",
+    "amount": "8000.56",
+    "price_per_gram": "10266.69",
+    "grams_bought": "0.779"
+  }
+]

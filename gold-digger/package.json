@@ -1,0 +1,15 @@
+{
+  "name": "gold-digger",
+  "version": "1.0.0",
+  "description": "rate of gold in indian rupee",
+  "license": "ISC",
+  "author": "pang",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "pdfkit": "^0.19.1"
+  }
+}

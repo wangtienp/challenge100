@@ -1,7 +1,14 @@
 try {
-    const data = await fetch("/api")
-    const response = await data.json()
-    renderCard(response)
+    const response = await fetch("/api")
+    if(!response.ok){
+        const errorData = await response.text()
+        console.log(errorData)
+        document.open()
+        document.write(errorData)
+        document.close()
+    }
+    const data = await response.json()
+    renderCard(data)
 } catch (error) {
     console.log(error)
 }

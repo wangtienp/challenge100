@@ -11,7 +11,6 @@ export async function serveStatic(dir, req, res) {
 
     // get the extension of all files
     const ext = path.extname(filePath)
-
     // get the content type of all files
     const contentType = getContentType(ext)
     try {
@@ -21,9 +20,10 @@ export async function serveStatic(dir, req, res) {
         sendResponse(res, 200, contentType, content)
     } catch (error) {
         if (error.code === 'ENOENT') {
-            const notFoundPath = path.join(publicPath, '404.html')
-            const content = await fs.readFile(notFoundPath)
-            sendResponse(res, 404, 'text/html', content)
+            
+            const notFoundPath = path.join(publicPath,'404.html')
+            const notFoundContent = await fs.readFile(notFoundPath)
+            sendResponse(res, 404, contentType, notFoundContent)
         } else {
             sendResponse(res, 500, 'text/html', `<html><h1>Server error : ${error.code}</h1></html>`)
         }

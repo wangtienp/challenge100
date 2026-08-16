@@ -2,7 +2,8 @@ import { getGalleryImg } from "./http.js"
 const defaultSetting = {
     IsNsfw: "False",
     dataTab: "0",
-    homepageIcon: "sfw"
+    homepageIcon: "sfw",
+    IsAnimated : "False"
 }
 const LOCALSTORAGEKEY = "KEYS"
 const homepageIconEle = document.querySelector(".homepage-icon")
@@ -20,8 +21,8 @@ window.addEventListener('load', () => {
     getHompageIcon(homepageIconEle,savedObj.homepageIcon)
 })
 retryBtn.addEventListener("click", ()=>{
-    console.log('retry',savedObj)
-    getImage(savedObj.IsNsfw)
+    let savedData = getData()
+    getImage(savedData.IsNsfw)
 } )
 
 async function getImage(IsNsfw) {
@@ -77,6 +78,7 @@ navBars.forEach(navBar => {
             defaultSetting.dataTab = navBar.dataset.tab
             defaultSetting.IsNsfw = navBar.dataset.tab == "0" ? "False" : "True"
             defaultSetting.homepageIcon = navBar.dataset.tab == "0" ? "sfw" : "nsfw"
+            console.log("tabbar setting",defaultSetting)
             setData()
             getImage(defaultSetting.IsNsfw)
             getHompageIcon(homepageIconEle,defaultSetting.homepageIcon)

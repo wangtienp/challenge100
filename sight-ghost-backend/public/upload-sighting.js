@@ -1,5 +1,4 @@
 const form = document.querySelector(".sight-form")
-console.log(form)
 const title = document.querySelector("#title")
 const timestamp = document.querySelector("#date-time")
 const text = document.querySelector("#details")
@@ -89,12 +88,12 @@ async function postForm(){
     const readableDate = date.toLocaleDateString('en-GB',options)
 
     const formData ={
+        uuid:crypto.randomUUID(),
         title:title.value,
         timestamp:readableDate,
         location:location.value,
         text:text.value
     }
-    console.log(formData)
     try{
         const response = await fetch("/api",{
             method:'POST',

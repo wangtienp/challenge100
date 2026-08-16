@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Digger Buy</title>
+    <link rel="stylesheet" href="/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <h1 class="title">Gold Digger</h1>
+        <div class="gold-img">
+            <img src="/images/gold.png" alt="gold nuggets">
+        </div>
+        <form>
+            <div class="form-input">
+                <label for="live-price">Live Price 🟢</label>
+                <input type="text" id="live-price" readonly>
+            </div>
+            <div class="form-input">
+                <label for="amount-invest">Amount to invest</label>
+                <div class="currency">₹</div>
+                <input type="number" id="amount-invest" placeholder="100" step="0.01" required>
+            </div>
+            <button type="submit" id="submit-button">Invest Now!!</button>
+        </form>
+        <div class="footer"><a href="/transaction-history.html">View Transaction History</a></div>
+        <dialog id="dialog">
+            <h3>Summary</h3>
+            <p id="summary-text">You just bought 1.002 Gram Digital Gold for ₹10000. You will receive documentation shortly.</p>
+            <button id="close-dialog-btn">OK</button>
+            <button id="download-receipt-btn">Download Receipt</button>
+        </dialog>
+    </main>
+
+    <script src="/index.js" type="module"></script>
+</body>
+
+</html>
