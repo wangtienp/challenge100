@@ -1,0 +1,15 @@
+{
+  "name": "sql-practice",
+  "version": "1.0.0",
+  "description": "sql practice",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.5.6"
+  }
+}
